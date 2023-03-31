@@ -5,6 +5,7 @@ import axios from 'axios';
 import { store } from './store.js';
 
 import TheHeader from './components/TheHeader.vue';
+import MovieList from './components/MovieList.vue';
 
 export default {
   data() {
@@ -18,9 +19,9 @@ export default {
 
       let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40";
 
-      if (store.movies.length > 0) {
-        urlApi += `&query=${store.input}`;
-        console.log(store.input);
+      if (store.search.length > 0) {
+        urlApi += `&query=${store.search}`;
+        console.log(store.search);
         console.log(urlApi);
       }
 
@@ -43,7 +44,8 @@ export default {
   computed: {
   },
   components: {
-    TheHeader
+    TheHeader,
+    MovieList
   }
 }
 
@@ -51,9 +53,10 @@ export default {
 
 <template>
   <header>
-      <TheHeader />
+      <TheHeader @doSearch="getMovies" />
   </header>
   <main>
+    <MovieList />
 
   </main>
 
@@ -77,5 +80,8 @@ header {
 main{
   height: calc(100vh - 70px);
   background-color: #434343;
+  display: flex;
+    justify-content: center;
+
 }
 </style>

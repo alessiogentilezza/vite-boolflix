@@ -1,17 +1,28 @@
 <template>
     <div class="container">
         <h1>BOOLFLIX</h1>
-        <input type="text">
+        <input type="text" placeholder="Search movie" v-model="store.search"  @keyup.enter="$emit('doSearch')">
+
+
     </div>
 </template>
 
 <script>
+import { store } from '../store.js';
+
 export default {
-    name: 'TheHeader'
+    name: 'TheHeader',
+
+    data() {
+    return {
+      store
+    }
+  },
+
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .container {
     height: 100%;
     width: 90%;
