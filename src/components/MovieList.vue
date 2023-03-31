@@ -6,8 +6,8 @@
 
     <div v-for="(movie, index) in store.movies" :key="index">
       <MovieCard 
-      :titolo="movie.name" 
-      :titoloOriginale="movie.original_name" 
+      :titolo="movie.title" 
+      :titoloOriginale="movie.title" 
       :lingua="movie.original_language"
       :voto="movie.vote_average" />
     </div>

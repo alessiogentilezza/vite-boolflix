@@ -22,7 +22,7 @@
 
 <style>
 .wrap {
-    border-bottom: 1px red solid;
+    border-top: 1px red solid;
     margin: 1px;
 
 }
