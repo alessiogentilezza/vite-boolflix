@@ -1,31 +1,46 @@
 <template>
-    <div class="container">
+  <div class="container">
 
-        <h2 v-if="store.movies.length == 0" class="text-center">Cerca il tuo film</h2>
-        <h2 v-else>work in progress...</h2>
+    <h2 v-if="store.movies.length == 0" class="text-center">Cerca il tuo film</h2>
+    <h2 v-else>work in progress...</h2>
 
+    <div v-for="(movie, index) in store.movies" :key="index">
+      <MovieCard 
+      :titolo="movie.name" 
+      :titoloOriginale="movie.original_name" 
+      :lingua="movie.original_language"
+      :voto="movie.vote_average" />
     </div>
+
+  </div>
 </template>
 
 <script>
 import { store } from '../store.js';
+import MovieCard from './MovieCard.vue';
+
 
 export default {
-    name: 'MovieList',
+  name: 'MovieList',
 
-    data() {
+  data() {
     return {
       store
     }
   },
+  components: {
+    MovieCard,
+  }
+
 
 }
 </script>
 
 <style scoped >
 .container {
-    color: white;
-    height: 100%;
-    width: 90%;
+  color: white;
+  height: 100%;
+  width: 90%;
 
-}</style>
+}
+</style>

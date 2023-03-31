@@ -76,10 +76,11 @@ header {
     display: flex;
     justify-content: center;
 }
-
-main{
-  height: calc(100vh - 70px);
+body{
   background-color: #434343;
+
+}
+main{
   display: flex;
     justify-content: center;
 
