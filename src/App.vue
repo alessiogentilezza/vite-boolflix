@@ -50,9 +50,32 @@ export default {
 </script>
 
 <template>
-  <TheHeader />
+  <header>
+      <TheHeader />
+  </header>
+  <main>
+
+  </main>
+
+
+
+
+
 </template>
 
 <style lang="scss">
 @use './styles/general.scss' as *;
+
+
+header {
+    height: 70px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+  height: calc(100vh - 70px);
+  background-color: #434343;
+}
 </style>
