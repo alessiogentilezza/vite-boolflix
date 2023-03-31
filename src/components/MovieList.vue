@@ -12,6 +12,14 @@
       :voto="movie.vote_average" />
     </div>
 
+    <!-- <div v-for="(serie, index) in store.series" :key="index">
+      <MovieCard 
+      :titolo="serie.title" 
+      :titoloOriginale="serie.title" 
+      :lingua="serie.original_language"
+      :voto="serie.vote_average" />
+    </div> -->
+
   </div>
 </template>
 

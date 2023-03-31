@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 
-//ARRAY FILMS///
+//ARRAY FILMS
 import { store } from './store.js';
 
 import TheHeader from './components/TheHeader.vue';
@@ -14,33 +14,51 @@ export default {
     }
   },
   methods: {
-    //ARRAY FILMS///
+    //ARRAY FILMS
     getMovies() {
 
-
-      // let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40&query=ciclone";
-      let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40";
+      let urlApiMovie = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40";
 
       if (store.search.length > 0) {
-        urlApi += `&query=${store.search}`;
+        urlApiMovie += `&query=${store.search}`;
         console.log(store.search);
-        console.log(urlApi);
       }
 
-      axios.get(urlApi)
+      axios.get(urlApiMovie)
         .then(response => {
-
           this.store.movies = response.data.results;
           console.log(this.store.movies)
+
         })
-
-
     },
+
+    //ARRAY SERIES///
+
+    getSeries() {
+      let urlApiSeries = "https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d";
+
+      if (store.search.length > 0) {
+        urlApiSeries += `&query=${store.search}`;
+        console.log(urlApiSeries);
+      }
+
+      axios.get(urlApiSeries)
+        .then(response => {
+          this.store.series = response.data.results;
+          console.log(this.store.series)
+
+        })
+    },
+
+
 
   },
   created() {
-    //ARRAY FILMS///
+    //ARRAY FILMS
     this.getMovies();
+
+    //ARRAY SERIES
+    this.getSeries();
 
   },
   computed: {
@@ -55,17 +73,12 @@ export default {
 
 <template>
   <header>
-      <TheHeader @doSearch="getMovies" />
+    <TheHeader @doSearch="getMovies(), getSeries()" />
   </header>
   <main>
     <MovieList />
 
   </main>
-
-
-
-
-
 </template>
 
 <style lang="scss">
@@ -73,18 +86,20 @@ export default {
 
 
 header {
-    height: 70px;
-    background-color: black;
-    display: flex;
-    justify-content: center;
+  height: 70px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
-body{
+
+body {
   background-color: #434343;
 
 }
-main{
+
+main {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 
 }
 </style>
