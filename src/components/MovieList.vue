@@ -1,8 +1,8 @@
 <template>
   <div class="container">
 
-    <h2 v-if="store.movies.length == 0" class="text-center">Cerca il tuo film</h2>
-    <h2 v-else>work in progress...</h2>
+    <h2 v-if="store.movies.length == 0">Cerca il tuo film</h2>
+    <h2 v-else>work in progress... FILMS</h2>
 
     <div v-for="(movie, index) in store.movies" :key="index">
       <MovieCard 
@@ -12,13 +12,15 @@
       :voto="movie.vote_average" />
     </div>
 
-    <!-- <div v-for="(serie, index) in store.series" :key="index">
+    <h2 v-show="store.series.length > 0">work in progress... SERIES</h2>
+
+    <div v-for="(serie, index) in store.series" :key="index">
       <MovieCard 
-      :titolo="serie.title" 
-      :titoloOriginale="serie.title" 
+      :titolo="serie.name" 
+      :titoloOriginale="serie.original_name" 
       :lingua="serie.original_language"
       :voto="serie.vote_average" />
-    </div> -->
+    </div> 
 
   </div>
 </template>
@@ -50,5 +52,10 @@ export default {
   height: 100%;
   width: 90%;
 
+}
+
+h2{
+  margin: 1rem 0;
+  color: darkorange;
 }
 </style>
