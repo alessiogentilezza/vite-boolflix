@@ -1,12 +1,24 @@
 <template>
     <div class="container">
-        <h2>Cerca il tuo film</h2>
+
+        <h2 v-if="store.movies.length == 0" class="text-center">Cerca il tuo film</h2>
+        <h2 v-else>work in progress...</h2>
+
     </div>
 </template>
 
 <script>
+import { store } from '../store.js';
+
 export default {
-    name: 'MovieList'
+    name: 'MovieList',
+
+    data() {
+    return {
+      store
+    }
+  },
+
 }
 </script>
 
