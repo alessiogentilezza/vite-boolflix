@@ -2,16 +2,13 @@
     <div class="wrap">
         <h3>titolo film {{ titolo }}</h3>
         <h3>titolo originale {{ titoloOriginale }}</h3>
-        <div>
-            <h3>lingua {{ lingua }} </h3>
-            {{ bandiera() }}
-        </div>
+        <!-- <img v-if="lingua === 'it'" src="/it.png" alt="Bandiera italiana">   //SOLO ITALIANA// -->
+        <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()">
+        <h3 v-else>lingua {{ lingua }} </h3>
         <h3>voto {{ voto }}</h3>
-        <!-- <img src="../assets/it.png"> -->
-
     </div>
 </template>
-
+  
 <script>
 export default {
     name: 'MovieCard',
@@ -24,18 +21,16 @@ export default {
     methods: {
         bandiera() {
             let bandiera = "";
-
             if (this.lingua == "it") {
-                bandiera = "../assets/it.png"
-            } else {
-
+                bandiera = "/it.png"
+            } else if (this.lingua == "en") {
+                bandiera = "/gb.png"
             }
             return bandiera
         },
     }
 }
 </script>
-
 
 <style>
 .wrap {
@@ -45,5 +40,6 @@ export default {
 
 img {
     height: 20px;
+    width: 40px;
 }
 </style>

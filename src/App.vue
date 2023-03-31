@@ -17,6 +17,8 @@ export default {
     //ARRAY FILMS///
     getMovies() {
 
+
+      // let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40&query=ciclone";
       let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40";
 
       if (store.search.length > 0) {
