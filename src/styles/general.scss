@@ -16,14 +16,59 @@ body {
     width: 40px;
     margin: 0.3rem 0;
 }
+.cover {
+    width: 100%;
+    height: 100%;
+}
+.yellow {
+    color: yellow;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    margin-top: 24px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
 .wrap {
-    border-top: 1px red solid;
-    margin: 1px;
+    padding: 1rem;
+}
+
+.flip-card-front {
+    color: black;
+}
+
+.flip-card-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
 }
 
 h3,
 h4,
 h5 {
-    padding: .3rem 0;
+    padding: 0.3rem 0;
 }
-

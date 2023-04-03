@@ -48,9 +48,9 @@ export default {
     },
 
   },
-  // created(){
-  //   this.getMovies();
-  // },
+   created(){
+     this.getMovies();
+   },
 
   components: {
     TheHeader,

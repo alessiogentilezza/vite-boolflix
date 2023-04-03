@@ -4,7 +4,7 @@ export const store = reactive(
     {
         movies: [],
         series: [],
-        search:"",
+        search:"super",
         img:[],
 
     }
