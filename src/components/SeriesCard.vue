@@ -89,15 +89,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cover {
-    height: 200px;
-}
 
-.noImage {
-    height: 200px;
-}
-.yellow{
-    color: yellow;
-}
 </style>
 

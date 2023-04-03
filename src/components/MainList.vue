@@ -4,7 +4,7 @@
     <h2 v-if="store.movies.length == 0">Cerca il tuo film</h2>
     <h2 v-else>work in progress... FILMS</h2>
     <div class="row">
-      <div class="col-3" v-for="(movie, index) in store.movies" :key="index">
+      <div class="col-auto" v-for="(movie, index) in store.movies" :key="index">
         <!-- SI PUO PASSARE UN UNICA PROP OBJECT "MOVIE"     <MovieCard :movie="movie"/> -->
         <MovieCard :titolo="movie.title" :titoloOriginale="movie.title" :lingua="movie.original_language"
           :voto="movie.vote_average" :image="imagelink + movie.backdrop_path" :path="movie.backdrop_path" />
