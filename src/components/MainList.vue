@@ -11,7 +11,6 @@
       :titoloOriginale="movie.title" 
       :lingua="movie.original_language"
       :voto="movie.vote_average" 
-
       :image="imagelink+movie.backdrop_path"
       :path="movie.backdrop_path"/>
       <!-- :bandiera="bandiera()"/> -->
