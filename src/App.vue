@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 
-//ARRAY FILMS
+//STORE GENERALE
 import { store } from './store.js';
 
 import TheHeader from './components/TheHeader.vue';
@@ -14,9 +14,9 @@ export default {
     }
   },
   methods: {
+
     //ARRAY FILMS
     getMovies() {
-
       let urlApiMovie = "https://api.themoviedb.org/3/search/movie?api_key=6d55564c6ea75d27119d87e52f2f5d40";
 
       if (store.search.length > 0) {
@@ -28,12 +28,10 @@ export default {
         .then(response => {
           this.store.movies = response.data.results;
           console.log(this.store.movies)
-
         })
     },
 
     //ARRAY SERIES///
-
     getSeries() {
       let urlApiSeries = "https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d";
 
@@ -46,23 +44,11 @@ export default {
         .then(response => {
           this.store.series = response.data.results;
           console.log(this.store.series)
-
         })
     },
 
-
-
   },
-  created() {
-    //ARRAY FILMS
-    this.getMovies();
 
-    //ARRAY SERIES
-    this.getSeries();
-
-  },
-  computed: {
-  },
   components: {
     TheHeader,
     MovieList

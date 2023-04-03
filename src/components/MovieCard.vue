@@ -13,6 +13,8 @@
 export default {
     name: 'MovieCard',
     props: {
+        // movie:Object,
+
         titolo: String,
         titoloOriginale: String,
         lingua: String,
@@ -32,7 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .wrap {
     border-top: 1px red solid;
     margin: 1px;
