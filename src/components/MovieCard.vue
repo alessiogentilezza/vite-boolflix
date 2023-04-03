@@ -1,21 +1,21 @@
 <template>
-    <div class="wrap">
-        <h3>Titolo film: {{ titolo }}</h3>
-        <h4 v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</h4>
+    <div class="text">
+        <h4>Titolo film: {{ titolo }}</h4>
+        <h5 v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</h5>
         <!-- <img v-if="lingua === 'it'" src="/it.png" alt="Bandiera italiana">   //SOLO ITALIANA// -->
-        <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()" class="flag">
-        <h5 v-else>Lingua: {{ lingua }} </h5>
-        <h5>Voto {{ numeroIntero(voto) }} </h5>
-        <img v-if="path !== null" :src=image class="cover">
-        <img v-else src="/No_Image_Available.jpg" class="cover">
+        <!-- <h6>Voto {{ numeroIntero(voto) }} </h6> -->
+    </div>
+    <img v-if="path !== null" :src=image class="cover">
+    <!-- <h4 v-else> NESSUNA IMAGINE</h4> -->
+    <img v-else src="/No_Image_Available.jpg" class="no-image">
 
-        <div>
-            <span v-for="i in 5">
-                <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
-                <i class="fa-regular fa-star" v-else></i>
-            </span>
-        </div>
-
+    <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()" class="flag">
+    <h6 v-else>Lingua: {{ lingua }} </h6>
+    <div>
+        <span v-for="i in 5">
+            <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
+            <i class="fa-regular fa-star" v-else></i>
+        </span>
     </div>
 </template>
 
@@ -59,13 +59,23 @@ export default {
 
 <style lang="scss" scoped>
 .cover {
-    height: 200px;
+    width: 100%;
+    margin: 1rem 0;
 }
 
-.noImage {
-    height: 200px;
+.no-image {
+    width: 100%;
+    height: 166px;
+    margin: 1rem 0;
+
 }
-.yellow{
+
+.text {
+    height: 100px;
+    overflow-y: hidden;
+}
+
+.yellow {
     color: yellow;
 }
 </style>

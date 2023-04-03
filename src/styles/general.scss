@@ -1,4 +1,5 @@
 @import "@fontsource/montserrat";
+@import "bootstrap";
 
 * {
     padding: 0;
@@ -15,7 +16,6 @@ body {
     width: 40px;
     margin: 0.3rem 0;
 }
-
 .wrap {
     border-top: 1px red solid;
     margin: 1px;
