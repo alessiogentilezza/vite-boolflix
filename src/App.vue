@@ -48,6 +48,9 @@ export default {
     },
 
   },
+  created(){
+    this.getMovies();
+  },
 
   components: {
     TheHeader,

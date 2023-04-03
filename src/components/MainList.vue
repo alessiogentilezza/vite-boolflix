@@ -6,21 +6,29 @@
     <h2 v-else>work in progress... FILMS</h2>
     <div v-for="(movie, index) in store.movies" :key="index">
       <!-- SI PUO PASSARE UN UNICA PROP OBJECT "MOVIE"     <MovieCard :movie="movie"/> -->
-      <MovieCard :titolo="movie.title" 
+      <MovieCard 
+      :titolo="movie.title" 
       :titoloOriginale="movie.title" 
       :lingua="movie.original_language"
-      :voto="movie.vote_average" />
+      :voto="movie.vote_average" 
+
+      :image="imagelink+movie.backdrop_path"
+      :path="movie.backdrop_path"/>
+      <!-- :bandiera="bandiera()"/> -->
     </div>
 
+
+
     <!-- CICLO ARRAY SERIE -->
+    
     <h2 v-show="store.series.length > 0">work in progress... SERIES</h2>
-    <div v-for="(serie, index) in store.series" :key="index">
+    <!-- <div v-for="(serie, index) in store.series" :key="index">
       <SeriesCard 
       :titolo="serie.name" 
       :titoloOriginale="serie.original_name" 
       :lingua="serie.original_language"
       :voto="serie.vote_average" />
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -36,9 +44,22 @@ export default {
 
   data() {
     return {
-      store
+      store,
+      imagelink: "https://image.tmdb.org/t/p/original"
     }
   },
+  methods: {
+        bandiera() {
+            let bandiera = "";
+            if (this.lingua == "it") {
+                bandiera = "/it.png"
+            } else if (this.lingua == "en") {
+                bandiera = "/gb.png"
+            }
+            return bandiera
+        },
+    },
+
   components: {
     MovieCard,
     SeriesCard,
