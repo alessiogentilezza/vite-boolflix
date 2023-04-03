@@ -10,9 +10,9 @@
         <img v-else src="/No_Image_Available.jpg" class="cover">
 
         <div>
-            <span v-for="i in stella">
-                <i class="fa-solid fa-star"></i>
-                <!-- <i class="fa-regular fa-star"></i> -->
+            <span v-for="i in 5">
+                <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
+                <i class="fa-regular fa-star" v-else></i>
             </span>
         </div>
 
@@ -64,6 +64,9 @@ export default {
 
 .noImage {
     height: 200px;
+}
+.yellow{
+    color: yellow;
 }
 </style>
 
