@@ -54,7 +54,9 @@ body {
     backface-visibility: hidden;
 }
 .wrap {
+    height: 100%;
     padding: 1rem;
+    overflow-y: auto;
 }
 
 .flip-card-front {
@@ -71,4 +73,7 @@ h3,
 h4,
 h5 {
     padding: 0.3rem 0;
+}
+.overflow{
+    overflow-y: hidden;
 }

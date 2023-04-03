@@ -7,41 +7,23 @@
             </div>
             <div class="flip-card-back">
                 <div class="wrap">
-                <h4>Titolo film: {{ titolo }}</h4>
-                <p v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</p>
-                <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()" class="flag">
-                <p v-else>Lingua: {{ lingua }} </p>
-                    <span v-for="i in 5">
-                        <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
-                        <i class="fa-regular fa-star" v-else></i>
-                    </span>
+                    <h4>Titolo film: </h4>
+                    <p>{{ titolo }}</p>
+                    <p v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</p>
+                    <img v-if="lingua == 'it' || lingua == 'en' || lingua == 'fr'" :src="bandiera()" class="flag">
+                    <p v-else>Lingua: {{ lingua }} </p>
+                    <div>
+                        <span v-for="i in 5">
+                            <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
+                            <i class="fa-regular fa-star" v-else></i>
+                        </span>
+                    </div>
+                    <h4>Trama</h4>
+                    <p>{{ trama }}</p>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <!-- 
-    
-        <div class="back">
-            <h4>Titolo film: {{ titolo }}</h4>
-            <h5 v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</h5>
-        </div>
-        <img v-if="path !== null" :src=image class="cover">
-        <img v-else src="/No_Image_Available.jpg" class="no-image">
-        <div class="back">
-            <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()" class="flag">
-            <h6 v-else>Lingua: {{ lingua }} </h6>
-            <div>
-                <span v-for="i in 5">
-                    <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
-                    <i class="fa-regular fa-star" v-else></i>
-                </span>
-            </div>
-        </div>
-
--->
-
 </template>
 
 <script>
@@ -62,6 +44,7 @@ export default {
         voto: Number,
         image: String,
         path: String,
+        trama: String
         // banidera: Function,
     },
     methods: {
@@ -71,6 +54,8 @@ export default {
                 bandiera = "/it.png"
             } else if (this.lingua == "en") {
                 bandiera = "/gb.png"
+            } else if (this.lingua == "fr") {
+                bandiera = "/fr.png"
             }
             console.log(bandiera);
             return bandiera
@@ -82,8 +67,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
 
 
 

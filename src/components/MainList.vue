@@ -7,7 +7,7 @@
       <div class="col-auto" v-for="(movie, index) in store.movies" :key="index">
         <!-- SI PUO PASSARE UN UNICA PROP OBJECT "MOVIE"     <MovieCard :movie="movie"/> -->
         <MovieCard :titolo="movie.title" :titoloOriginale="movie.title" :lingua="movie.original_language"
-          :voto="movie.vote_average" :image="imagelink + movie.backdrop_path" :path="movie.backdrop_path" />
+          :voto="movie.vote_average" :image="imagelink + movie.backdrop_path" :path="movie.backdrop_path" :trama="movie.overview"/>
         <!-- :bandiera="bandiera()"/> -->
       </div>
     </div>
@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-3" v-for="(serie, index) in store.series" :key="index">
         <SeriesCard :titolo="serie.name" :titoloOriginale="serie.original_name" :lingua="serie.original_language"
-          :voto="serie.vote_average" :image="imagelink + serie.backdrop_path" :path="serie.backdrop_path" />
+          :voto="serie.vote_average" :image="imagelink + serie.backdrop_path" :path="serie.backdrop_path" :trama="serie.overview" />
         <!-- :bandiera="bandiera()"/> -->
       </div>
     </div>
