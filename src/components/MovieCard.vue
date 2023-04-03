@@ -5,13 +5,14 @@
         <!-- <img v-if="lingua === 'it'" src="/it.png" alt="Bandiera italiana">   //SOLO ITALIANA// -->
         <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()" class="flag">
         <h5 v-else>Lingua: {{ lingua }} </h5>
-        <h5>Voto {{Math.ceil(numeroIntero(voto))}} </h5>
+        <h5>Voto {{ numeroIntero(voto) }} </h5>
         <img v-if="path !== null" :src=image class="cover">
         <img v-else src="/No_Image_Available.jpg" class="cover">
 
         <div>
-            <span v-for="i in 5">
-                <i class="fa-regular fa-star"></i>
+            <span v-for="i in stella">
+                <i class="fa-solid fa-star"></i>
+                <!-- <i class="fa-regular fa-star"></i> -->
             </span>
         </div>
 
@@ -24,10 +25,10 @@ export default {
     name: 'MovieCard',
 
     data() {
-    return {
-      stella:""
-    }
-  },
+        return {
+            stella: this.numeroIntero(this.voto)
+        }
+    },
 
     props: {
         titolo: String,
@@ -50,10 +51,9 @@ export default {
             return bandiera
         },
         numeroIntero(numero) {
-            numero = (numero / 2)
-            return numero
+            return Math.ceil(numero / 2);
         },
-    }
+    },
 }
 </script>
 
