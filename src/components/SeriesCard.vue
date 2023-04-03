@@ -1,26 +1,43 @@
 <template>
     <div class="wrap">
-        <h3>Titolo serie: {{ titolo }}</h3>
-        <h4 v-if="titoloOriginale !== titolo" >Titolo originale: {{ titoloOriginale }}</h4>
+        <h3>Titolo film: {{ titolo }}</h3>
+        <h4 v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</h4>
         <!-- <img v-if="lingua === 'it'" src="/it.png" alt="Bandiera italiana">   //SOLO ITALIANA// -->
-        <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()">
+        <img v-if="lingua == 'it' || lingua == 'en'" :src="bandiera()" class="flag">
         <h5 v-else>Lingua: {{ lingua }} </h5>
-        <h5>Voto {{ voto }}</h5>
-        <img :src=image alt="" class="cover">
+        <h5>Voto {{ numeroIntero(voto) }} </h5>
+        <img v-if="path !== null" :src=image class="cover">
+        <img v-else src="/No_Image_Available.jpg" class="cover">
+
+        <div>
+            <span v-for="i in 5">
+                <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
+                <i class="fa-regular fa-star" v-else></i>
+            </span>
+        </div>
+
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'SeriesCard',
-    props: {
-        // movie:Object,
 
+    data() {
+        return {
+            stella: this.numeroIntero(this.voto)
+        }
+    },
+
+    props: {
         titolo: String,
         titoloOriginale: String,
         lingua: String,
         voto: Number,
-        img: String,
+        image: String,
+        path: String,
+        // banidera: Function,
     },
     methods: {
         bandiera() {
@@ -30,27 +47,26 @@ export default {
             } else if (this.lingua == "en") {
                 bandiera = "/gb.png"
             }
+            console.log(bandiera);
             return bandiera
         },
-    }
+        numeroIntero(numero) {
+            return Math.ceil(numero / 2);
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
-.wrap {
-    border-top: 1px orange solid;
-    margin: 1px;
+.cover {
+    height: 200px;
 }
 
-img {
-    height: 20px;
-    width: 40px;
-    margin: 0.3rem 0;
+.noImage {
+    height: 200px;
 }
-
-h3,
-h4,
-h5 {
-    padding: .3rem 0;
+.yellow{
+    color: yellow;
 }
 </style>
+

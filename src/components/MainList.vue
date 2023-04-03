@@ -21,13 +21,16 @@
     <!-- CICLO ARRAY SERIE -->
     
     <h2 v-show="store.series.length > 0">work in progress... SERIES</h2>
-    <!-- <div v-for="(serie, index) in store.series" :key="index">
+    <div v-for="(serie, index) in store.series" :key="index">
       <SeriesCard 
       :titolo="serie.name" 
       :titoloOriginale="serie.original_name" 
       :lingua="serie.original_language"
-      :voto="serie.vote_average" />
-    </div> -->
+      :voto="serie.vote_average"
+      :image="imagelink+serie.backdrop_path"
+      :path="serie.backdrop_path"/>
+
+    </div>
 
   </div>
 </template>
