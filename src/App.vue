@@ -5,7 +5,7 @@ import axios from 'axios';
 import { store } from './store.js';
 
 import TheHeader from './components/TheHeader.vue';
-import MovieList from './components/MovieList.vue';
+import MainList from './components/MainList.vue';
 
 export default {
   data() {
@@ -51,7 +51,7 @@ export default {
 
   components: {
     TheHeader,
-    MovieList
+    MainList
   }
 }
 
@@ -62,7 +62,7 @@ export default {
     <TheHeader @doSearch="getMovies(), getSeries()" />
   </header>
   <main>
-    <MovieList />
+    <MainList />
 
   </main>
 </template>

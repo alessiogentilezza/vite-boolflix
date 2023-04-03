@@ -12,10 +12,10 @@
       :voto="movie.vote_average" />
     </div>
 
-    <!-- CICLO ARRAY ARRAY -->
+    <!-- CICLO ARRAY SERIE -->
     <h2 v-show="store.series.length > 0">work in progress... SERIES</h2>
     <div v-for="(serie, index) in store.series" :key="index">
-      <MovieCard 
+      <SeriesCard 
       :titolo="serie.name" 
       :titoloOriginale="serie.original_name" 
       :lingua="serie.original_language"
@@ -28,10 +28,11 @@
 <script>
 import { store } from '../store.js';
 import MovieCard from './MovieCard.vue';
+import SeriesCard from './SeriesCard.vue';
 
 
 export default {
-  name: 'MovieList',
+  name: 'MainList',
 
   data() {
     return {
@@ -40,6 +41,7 @@ export default {
   },
   components: {
     MovieCard,
+    SeriesCard,
   }
 
 
