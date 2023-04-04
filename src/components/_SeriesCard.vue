@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <!-- 
+<!-- 
     <div class="wrap">
         <h3>Titolo film: {{ titolo }}</h3>
         <h4 v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</h4>

@@ -7,18 +7,24 @@
             </div>
             <div class="flip-card-back">
                 <div class="wrap">
-                    <h4>Titolo film: </h4>
+                    <h5>Titolo film:</h5>
                     <p>{{ titolo }}</p>
-                    <p v-if="titoloOriginale !== titolo">Titolo originale: {{ titoloOriginale }}</p>
+                    <div v-if="titoloOriginale !== titolo">
+                        <h5>Titolo originale:</h5>
+                        <p>{{ titoloOriginale }}</p>
+                    </div>
                     <img v-if="lingua == 'it' || lingua == 'en' || lingua == 'fr'" :src="bandiera()" class="flag">
-                    <p v-else>Lingua: {{ lingua }} </p>
+                    <div v-else>
+                        <h5>Lingua: </h5>
+                        {{ lingua }}
+                    </div>
                     <div>
                         <span v-for="i in 5">
                             <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
                             <i class="fa-regular fa-star" v-else></i>
                         </span>
                     </div>
-                    <h4>Trama</h4>
+                    <h5>Trama</h5>
                     <p>{{ trama }}</p>
                 </div>
             </div>
