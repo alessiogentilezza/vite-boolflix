@@ -24,8 +24,9 @@ export default {
       axios.get(urlApiMovie)
         .then(response => {
           this.store.movies = response.data.results;
-          console.log(this.store.movies)
-        })
+          console.log(`ARRAY FILMS ${this.store.movies}`);
+          this.getCast();
+        });
     },
 
     //ARRAY SERIES///
@@ -33,38 +34,37 @@ export default {
       let urlApiSeries = "https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d";
       if (store.search.length > 0) {
         urlApiSeries += `&query=${store.search}`;
-        // console.log(urlApiSeries);
       }
       axios.get(urlApiSeries)
         .then(response => {
           this.store.series = response.data.results;
-          // console.log(this.store.series)
+          console.log(`ARRAY SERIES ${this.store.series}`)
         })
     },
-
-
 
     //ARRAY CAST///
     getCast() {
       let urlApiCast = "https://api.themoviedb.org/3/movie/";
-        //  https://api.themoviedb.org/3/movie/{movie_id}/credits?
-      if (store.search.length > 0) {
-
-        urlApiCast += `${this.store.id}/credits?${store.api}`;
-
-        // urlApiCast += `268/credits?${store.api}`;
+      //  https://api.themoviedb.org/3/movie/{movie_id}/credits?
+      if (store.search.length > 0 && store.movies.length > 0) {
+        let element = ""
+        for (let index = 0; index < this.store.movies.length; index++) {
+          element = this.store.movies[index].id;
+          // console.log(element)
+        }
+        urlApiCast += `${element}/credits?${store.api}`;
       }
       axios.get(urlApiCast)
         .then(response => {
           this.store.cast = response.data.cast;
-          console.log(this.store.cast)
+          console.log(`ARRAY CAST ${this.store.cast}`)
         })
     },
-
   },
-    created(){
-     this.getMovies();
-    },
+
+  // created() {
+  //   this.getMovies();
+  // },
 
   components: {
     TheHeader,
@@ -76,7 +76,7 @@ export default {
 
 <template>
   <header>
-    <TheHeader @doSearch="getMovies(), getSeries(), getCast()" />
+    <TheHeader @doSearch="getMovies(), getSeries()"/>
   </header>
   <main>
     <MainList />

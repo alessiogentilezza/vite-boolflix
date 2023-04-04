@@ -13,7 +13,7 @@
                         <h5>Titolo originale:</h5>
                         <p>{{ titoloOriginale }}</p>
                     </div>
-                    <!-- SOLUZIONE BANDIERINE
+                    <!-- SOLUZIONE ALTERNATIVA BANDIERINE
                     
                     -->
                     <img v-if="lingua == 'it' || lingua == 'en' || lingua == 'fr'" :src="bandiera()" class="flag">
@@ -45,7 +45,7 @@ export default {
         return {
             stella: this.numeroIntero(this.voto),
 
-            bandierine:["it","en","fr"] //SOLUZIONE BANDIERINE
+            bandierine:["it","en","fr"] //SOLUZIONE ALTERNATIVA BANDIERINE
  
         }
 
@@ -70,7 +70,6 @@ export default {
             } else if (this.lingua == "fr") {
                 bandiera = "/fr.png"
             }
-            console.log(bandiera);
             return bandiera
         },
         numeroIntero(numero) {
