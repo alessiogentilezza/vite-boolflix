@@ -13,7 +13,7 @@
                         <h5>Titolo originale:</h5>
                         <p>{{ titoloOriginale }}</p>
                     </div>
-                    <!-- SOLUZIONE ALTERNATIVA BANDIERINE
+                    <!-- SOLUZIONE ALTERNATIVA BANDIERINE CON INCLUDES
                     
                     -->
                     <img v-if="lingua == 'it' || lingua == 'en' || lingua == 'fr'" :src="bandiera()" class="flag">
@@ -28,8 +28,7 @@
                         </span>
                     </div>
                     <h5>Trama</h5>
-                    <p>{{ trama.substring(0,200) }}...</p>
-                    
+                    <p>{{ trama.substring(0, 200) }}...</p>
                 </div>
             </div>
         </div>
@@ -37,16 +36,19 @@
 </template>
 
 <script>
+import { store } from '../store.js';
+
 
 export default {
     name: 'MovieCard',
 
     data() {
         return {
+            store,
             stella: this.numeroIntero(this.voto),
 
-            bandierine:["it","en","fr"] //SOLUZIONE ALTERNATIVA BANDIERINE
- 
+            bandierine: ["it", "en", "fr"] //SOLUZIONE ALTERNATIVA BANDIERINE
+
         }
 
     },
@@ -75,6 +77,15 @@ export default {
         numeroIntero(numero) {
             return Math.ceil(numero / 2);
         },
+        arrayCast() {
+            let nomeAttore = ""
+            store.cast.forEach(element => {
+                nomeAttore = element.name
+            });
+            console.console.log(nomeAttore);
+            return nomeAttore
+        }
+
     },
 }
 </script>

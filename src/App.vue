@@ -25,6 +25,7 @@ export default {
         .then(response => {
           this.store.movies = response.data.results;
           console.log(`ARRAY FILMS ${this.store.movies}`);
+          
           this.getCast();
         });
     },
@@ -50,7 +51,6 @@ export default {
         let element = ""
         for (let index = 0; index < this.store.movies.length; index++) {
           element = this.store.movies[index].id;
-          // console.log(element)
         }
         urlApiCast += `${element}/credits?${store.api}`;
       }
