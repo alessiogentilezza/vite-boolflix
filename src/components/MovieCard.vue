@@ -28,7 +28,8 @@
                         </span>
                     </div>
                     <h5>Trama</h5>
-                    <p>{{ trama }}</p>
+                    <p>{{ trama.substring(0,200) }}...</p>
+                    
                 </div>
             </div>
         </div>
