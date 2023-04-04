@@ -13,6 +13,9 @@
                         <h5>Titolo originale:</h5>
                         <p>{{ titoloOriginale }}</p>
                     </div>
+                    <!-- SOLUZIONE BANDIERINE
+                    
+                    -->
                     <img v-if="lingua == 'it' || lingua == 'en' || lingua == 'fr'" :src="bandiera()" class="flag">
                     <div v-else>
                         <h5>Lingua: </h5>
@@ -39,8 +42,12 @@ export default {
 
     data() {
         return {
-            stella: this.numeroIntero(this.voto)
+            stella: this.numeroIntero(this.voto),
+
+            bandierine:["it","en","fr"] //SOLUZIONE BANDIERINE
+ 
         }
+
     },
 
     props: {
@@ -51,7 +58,6 @@ export default {
         image: String,
         path: String,
         trama: String
-        // banidera: Function,
     },
     methods: {
         bandiera() {
@@ -59,7 +65,7 @@ export default {
             if (this.lingua == "it") {
                 bandiera = "/it.png"
             } else if (this.lingua == "en") {
-                bandiera = "/gb.png"
+                bandiera = "/en.png"
             } else if (this.lingua == "fr") {
                 bandiera = "/fr.png"
             }

@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <h1>BOOLFLIX</h1>
+  <div class="container d-flex justify-content-between align-items-center text-danger">
+    <h1 class="mb-0">BOOLFLIX</h1>
     <div>
       <input type="text" placeholder="Search movie" v-model="store.search" @keyup.enter="$emit('doSearch')">
-      <button @click="$emit('doSearch')">Search</button>
+      <button class="ms-1" @click="$emit('doSearch')">Search</button>
 
     </div>
 
@@ -27,13 +27,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  height: 100%;
-  width: 90%;
-  color: red;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-}
 </style>

@@ -1,4 +1,5 @@
 @import "@fontsource/montserrat";
+@import "@fontsource/bebas-neue";
 @import "bootstrap";
 
 * {
@@ -8,7 +9,7 @@
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .flag {
@@ -29,7 +30,7 @@ body {
     width: 100%;
     height: 400px;
     border: 1px solid #f1f1f1;
-    margin-top: 24px;
+    margin: 12px 0;
 }
 
 .flip-card-inner {
@@ -52,7 +53,6 @@ body {
     -webkit-backface-visibility: hidden;
     /* Safari */
     backface-visibility: hidden;
-    
 }
 .wrap {
     height: 100%;
@@ -71,10 +71,14 @@ body {
     transform: rotateY(180deg);
 }
 
+h2 {
+    margin-top: 12px;
+    color: darkorange;
+}
+
 h3,
 h4,
 h5 {
-
     color: red;
     padding: 0.3rem 0;
 }

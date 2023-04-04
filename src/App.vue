@@ -21,13 +21,13 @@ export default {
 
       if (store.search.length > 0) {
         urlApiMovie += `&query=${store.search}`;
-        console.log(store.search);
+        // console.log(store.search);
       }
 
       axios.get(urlApiMovie)
         .then(response => {
           this.store.movies = response.data.results;
-          console.log(this.store.movies)
+          // console.log(this.store.movies)
         })
     },
 
@@ -37,13 +37,13 @@ export default {
 
       if (store.search.length > 0) {
         urlApiSeries += `&query=${store.search}`;
-        console.log(urlApiSeries);
+        // console.log(urlApiSeries);
       }
 
       axios.get(urlApiSeries)
         .then(response => {
           this.store.series = response.data.results;
-          console.log(this.store.series)
+          // console.log(this.store.series)
         })
     },
 
@@ -66,7 +66,6 @@ export default {
   </header>
   <main>
     <MainList />
-
   </main>
 </template>
 
