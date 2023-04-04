@@ -35,8 +35,7 @@
           :voto="serie.vote_average" 
           :image="imagelink + serie.backdrop_path" 
           :path="serie.backdrop_path"
-          :trama="serie.overview" 
-          />
+          :trama="serie.overview"/>
         </div>
       </div>
     </section>

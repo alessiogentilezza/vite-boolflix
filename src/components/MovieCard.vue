@@ -28,7 +28,15 @@
                         </span>
                     </div>
                     <h5>Trama</h5>
-                    <p>{{ trama.substring(0, 200) }}...</p>
+                    <p>{{ trama.substring(0, 100) }}...</p>
+
+                    <!-- CICLO ARRAY CAST -->
+                    <div v-for="(attore, index) in store.cast" :key="index">
+                        <CastFilm :attore="attore.name" 
+                        :ruolo="attore.character"/>
+                    </div>
+                    <!-- CICLO ARRAY CAST -->
+
                 </div>
             </div>
         </div>
@@ -37,6 +45,8 @@
 
 <script>
 import { store } from '../store.js';
+import CastFilm from './CastFilm.vue';
+
 
 
 export default {
@@ -77,15 +87,21 @@ export default {
         numeroIntero(numero) {
             return Math.ceil(numero / 2);
         },
+        /** 
         arrayCast() {
-            let nomeAttore = ""
-            store.cast.forEach(element => {
-                nomeAttore = element.name
-            });
-            console.console.log(nomeAttore);
-            return nomeAttore
-        }
+        let nomeAttore = {}
+        this.store.cast.forEach((element, index) => {
+        nomeAttore = element
+        });
+        console.log(nomeAttore);
+        return nomeAttore;
+        },
+        }*/
+        
 
+    },
+    components: {
+        CastFilm
     },
 }
 </script>
