@@ -9,15 +9,15 @@
 
             <div class="flip-card-back">
                 <div class="wrap">
-                    <h5>Titolo film:</h5>
+                    <h5 class="text-red">Titolo film:</h5>
                     <p>{{ titolo }}</p>
                     <div v-if="titoloOriginale !== titolo">
-                        <h5>Titolo originale:</h5>
+                        <h5 class="text-red">Titolo originale:</h5>
                         <p>{{ titoloOriginale }}</p>
                     </div>
-                    <!-- SOLUZIONE ALTERNATIVA BANDIERINE CON INCLUDES
 
-                    -->
+                    <!-- SOLUZIONE ALTERNATIVA BANDIERINE CON INCLUDES-->
+
                     <img v-if="lingua == 'it' || lingua == 'en' || lingua == 'fr'" :src="bandiera()" class="flag">
                     <div v-else>
                         <h5>Lingua: </h5>
@@ -25,25 +25,24 @@
                     </div>
 
                     <!-- VALUTAZIONE STELLE -->
+                    <!-- SOLUZIONE ALTERNATIVA con V-BIND DI CLASSI-->
                     <div>
-                        <span v-for="i in 5">
+                        <span v-for="i in 5" :key="i">
                             <i class="fa-solid fa-star yellow" v-if="stella >= i"></i>
                             <i class="fa-regular fa-star" v-else></i>
                         </span>
                     </div>
 
-                    <h5>Trama</h5>
-                    <p>{{ trama.substring(0, 100) }}...</p>
+                    <h5 class="text-red">Trama</h5>
+                    <p>{{ trama.substring(0, 150) }}...</p>
 
-                    <!-- CICLO ARRAY CAST -->
+                    <!-- CICLO ARRAY CAST  -->
                     <div v-for="(attore, index) in cast" :key="index">
                         <div v-if="attore.character !== ''">
-                            <h6>Ruolo:</h6>
-                            {{ attore.character }}
+                            <span class="text-red">Ruolo:</span> {{ attore.character }}
                         </div>
                         <div v-if="attore.name !== ''">
-                            <h6>Attore:</h6>
-                            {{ attore.name }}
+                            <span class="text-red">Attore:</span> {{ attore.name }}
                         </div>
                     </div>
 

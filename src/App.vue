@@ -55,12 +55,19 @@ export default {
           this.store.movies[index].cast = response.data.cast;
         });
       }
+
+      for (let index = 0; index < this.store.series.length; index++) {
+        let urlApiCastSeries = "https://api.themoviedb.org/3/tv/";
+        const element = this.store.series[index].id;
+        urlApiCastSeries += `${element}/credits?${store.api}`;
+
+        axios.get(urlApiCastSeries).then((response) => {
+          this.store.series[index].cast = response.data.cast;
+        });
+      }
+
     },
   },
-
-  // created() {
-  //   this.getMovies();
-  // },
 
   components: {
     TheHeader,
@@ -82,7 +89,6 @@ export default {
 <style lang="scss">
 @use './styles/general.scss' as *;
 
-
 header {
   height: 70px;
   background-color: black;
@@ -92,12 +98,10 @@ header {
 
 body {
   background-color: #434343;
-
 }
 
 main {
   display: flex;
   justify-content: center;
-
 }
 </style>
