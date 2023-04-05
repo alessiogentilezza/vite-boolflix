@@ -37,7 +37,7 @@
                     <p>{{ trama.substring(0, 150) }}...</p>
 
                     <!-- CICLO ARRAY CAST  -->
-                    <div v-for="(attore, index) in cast" :key="index">
+                    <div v-for="(attore, index) in cast.splice(0,5)" :key="index">
                         <div v-if="attore.character !== ''">
                             <span class="text-red">Ruolo:</span> {{ attore.character }}
                         </div>
