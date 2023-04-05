@@ -34,15 +34,17 @@
                     </div>
 
                     <h5 class="text-red">Trama</h5>
-                    <p>{{ trama.substring(0, 150) }}...</p>
+                    <p>{{ getWordStr(trama) }}...</p>
 
                     <!-- CICLO ARRAY CAST  -->
-                    <div v-for="(attore, index) in cast.splice(0,5)" :key="index">
-                        <div v-if="attore.character !== ''">
-                            <span class="text-red">Ruolo:</span> {{ attore.character }}
-                        </div>
-                        <div v-if="attore.name !== ''">
-                            <span class="text-red">Attore:</span> {{ attore.name }}
+                    <div v-if="cast">
+                        <div v-for="(attore, index) in (cast.splice(0, 5))" :key="index">
+                            <div v-if="attore.character !== ''">
+                                <span class="text-red">Ruolo:</span> {{ attore.character }}
+                            </div>
+                            <div v-if="attore.name !== ''">
+                                <span class="text-red">Attore:</span> {{ attore.name }}
+                            </div>
                         </div>
                     </div>
 
@@ -96,6 +98,11 @@ export default {
         numeroIntero(numero) {
             return Math.ceil(numero / 2);
         },
+
+        getWordStr(str) {
+            return str.split(/\s+/).slice(0, 30).join(" ");
+        }
+
     },
 }
 </script>
