@@ -49,11 +49,15 @@ export default {
       //  https://api.themoviedb.org/3/movie/{movie_id}/credits?
       if (store.search.length > 0 && store.movies.length > 0) {
         let element = ""
+
         for (let index = 0; index < this.store.movies.length; index++) {
-          element = this.store.movies[index].id;
+          element = this.store.movies[index].id;            
+          console.log(element)
         }
-        urlApiCast += `${element}/credits?${store.api}`;
+         urlApiCast += `${element}/credits?${store.api}`;
+         console.log(urlApiCast)
       }
+      
       axios.get(urlApiCast)
         .then(response => {
           this.store.cast = response.data.cast;
