@@ -12,7 +12,7 @@
           <!-- SI PUO PASSARE UN UNICA PROP OBJECT "MOVIE"     <MovieCard :movie="movie"/> -->
           <MovieCard :titolo="movie.title" :titoloOriginale="movie.title" :lingua="movie.original_language"
             :voto="movie.vote_average" :image="imagelink + movie.poster_path" :path="movie.poster_path"
-            :trama="movie.overview" />
+            :trama="movie.overview" :cast="movie.cast" />
         </div>
       </div>
     </section>

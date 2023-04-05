@@ -25,7 +25,7 @@ export default {
         .then(response => {
           this.store.movies = response.data.results;
           console.log(`ARRAY FILMS ${this.store.movies}`);
-          
+
           this.getCast();
         });
     },
@@ -45,24 +45,16 @@ export default {
 
     //ARRAY CAST///
     getCast() {
-      let urlApiCast = "https://api.themoviedb.org/3/movie/";
-      //  https://api.themoviedb.org/3/movie/{movie_id}/credits?
-      if (store.search.length > 0 && store.movies.length > 0) {
-        let element = ""
 
-        for (let index = 0; index < this.store.movies.length; index++) {
-          element = this.store.movies[index].id;            
-          console.log(element)
-        }
-         urlApiCast += `${element}/credits?${store.api}`;
-         console.log(urlApiCast)
+      for (let index = 0; index < this.store.movies.length; index++) {
+        let urlApiCast = "https://api.themoviedb.org/3/movie/";
+        const element = this.store.movies[index].id;
+        urlApiCast += `${element}/credits?${store.api}`;
+
+        axios.get(urlApiCast).then((response) => {
+          this.store.movies[index].cast = response.data.cast;
+        });
       }
-      
-      axios.get(urlApiCast)
-        .then(response => {
-          this.store.cast = response.data.cast;
-          console.log(`ARRAY CAST ${this.store.cast}`)
-        })
     },
   },
 
@@ -80,7 +72,7 @@ export default {
 
 <template>
   <header>
-    <TheHeader @doSearch="getMovies(), getSeries()"/>
+    <TheHeader @doSearch="getMovies(), getSeries()" />
   </header>
   <main>
     <MainList />

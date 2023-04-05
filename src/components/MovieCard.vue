@@ -36,11 +36,15 @@
                     <p>{{ trama.substring(0, 100) }}...</p>
 
                     <!-- CICLO ARRAY CAST -->
-                    <div v-for="(attore, index) in store.cast" :key="index">
-                        <h6>Parte:</h6>
-                        {{ attore.character }}
-                        <h6>Attore:</h6>
-                        {{ attore.name }}
+                    <div v-for="(attore, index) in cast" :key="index">
+                        <div v-if="attore.character !== ''">
+                            <h6>Ruolo:</h6>
+                            {{ attore.character }}
+                        </div>
+                        <div v-if="attore.name !== ''">
+                            <h6>Attore:</h6>
+                            {{ attore.name }}
+                        </div>
                     </div>
 
                 </div>
@@ -75,7 +79,8 @@ export default {
         voto: Number,
         image: String,
         path: String,
-        trama: String
+        trama: String,
+        cast: Array
     },
     methods: {
         bandiera() {
@@ -92,7 +97,6 @@ export default {
         numeroIntero(numero) {
             return Math.ceil(numero / 2);
         },
-
     },
 }
 </script>
